@@ -1,8 +1,8 @@
 default: debug
 
 build:
-	nasm -f elf -F dwarf -g main.asm
-	ld -m elf_i386 -o main main.o 
+	nasm -f elf64 -F dwarf -g main.asm
+	ld -m elf_x86_64 -o main main.o 
 
 debug: build 
 	gdb --batch --command=main.gdb ./main
