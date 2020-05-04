@@ -21,3 +21,20 @@
 
 ; NASM
 ; ----------------------------------------------------------------------------------------
+
+        global  _start
+
+        section .text
+_start:
+        mov eax,[num1]
+        add eax,[num2]
+        mov [ans],eax        
+        ; Exit program
+        mov     eax, 60                 ; system call for exit
+        xor     edi, edi                ; exit code 0
+        syscall                         ; invoke operating system to exit
+
+        section .data
+num1:   dd   11111111h
+num2:   dd   10101010h
+ans :   dd   0
